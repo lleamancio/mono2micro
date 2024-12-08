@@ -22,6 +22,13 @@ public class HotelResource {
         return Hotel.findById(id);
     }
 
+    @GET
+    @Path("findByTravelOrderId")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Hotel findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId){
+        return Hotel.findByTravelOrderId(travelOrderId);
+    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
