@@ -10,6 +10,13 @@ import java.util.List;
 public class HotelResource {
 
     @GET
+    @Path("/hotels-health-check")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String hotelsHealthCheck() {
+        return "hotels-health-check";
+    }
+
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Hotel> hotels() {
         return Hotel.listAll();
@@ -25,7 +32,7 @@ public class HotelResource {
     @GET
     @Path("findByTravelOrderId")
     @Produces(MediaType.APPLICATION_JSON)
-    public Hotel findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) {
+    public Hotel findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) throws InterruptedException {
         return Hotel.findByTravelOrderId(travelOrderId);
     }
 

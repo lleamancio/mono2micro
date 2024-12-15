@@ -11,6 +11,13 @@ import java.util.List;
 public class FlightResource {
 
     @GET
+    @Path("/flight-health-check")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String flightsHealthCheck() {
+        return "flight-health-check";
+    }
+
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Flight> flights() {
         return Flight.listAll();
