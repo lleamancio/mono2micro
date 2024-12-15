@@ -4,6 +4,7 @@ import com.leticiaamancio.travelorder.flight.Flight;
 import com.leticiaamancio.travelorder.flight.FlightService;
 import com.leticiaamancio.travelorder.hotel.Hotel;
 import com.leticiaamancio.travelorder.hotel.HotelService;
+import io.smallrye.common.annotation.RunOnVirtualThread;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -26,6 +27,7 @@ public class TravelOrderResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @RunOnVirtualThread
     public List<TravelOrderDTO> orders() {
         return TravelOrder.<TravelOrder>listAll().stream()
                 .map(
